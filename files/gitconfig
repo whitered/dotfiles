@@ -1,0 +1,25 @@
+[user]
+  name = Dmitry Zhelnin
+  email = dmitry.zhelnin@gmail.com
+[alias]
+  s = status
+  d = diff
+  dc = diff --cached
+  amend = commit --amend -C HEAD
+	logo = log --oneline
+[color]
+  ui = true
+[help]
+  format = man
+  browser = google-chrome
+[status]
+  showUntrackedFiles = all
+[mergetool]
+  keepBackup = false
+  prompt = false
+[merge]
+  tool = p4merge
+[mergetool "p4merge"]
+  path = /usr/local/bin/p4merge
+[core]
+  excludesfile = ~/.gitignore_global
