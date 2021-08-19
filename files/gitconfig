@@ -27,3 +27,5 @@
   path = /usr/local/bin/p4merge
 [core]
   excludesfile = ~/.gitignore_global
+[includeIf "gitdir:~/projects/qt.media/"]
+    path = ~/projects/qt.media/.included.gitconfig
