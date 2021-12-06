@@ -17,9 +17,9 @@ ZSH_THEME="${ZSH_THEME:=random}"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refined" )
+ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refined" "mh" "dpoggi" "adben")
 
-ZSH_THEME_RANDOM_CANDIDATES=( "3den" "adben" "af-magic" "afowler" "agnoster" "amuse" "apple" "arrow" "aussiegeek" "avit" "awesomepanda" "blinks" "bureau" "candy" "candy-kingdom" "clean" "cloud" "crcandy" "cypher" "daveverwer" "dieter" "dpoggi" "dst" "dstufft" "duellj" "edvardm" "emotty" "essembeh" "evan" "fino" "fishy" "flazz" "fletcherm" "fox" "frisk" "frontcube" "fwalch" "gallifrey" "garyblessington" "gentoo" "geoffgarside" "gianu" "gnzh" "gozilla" "half-life" "intheloop" "itchy" "jaischeema" "jbergantine" "jispwoso" "jnrowe" "jonathan" "josh" "jtriley" "juanghurtado" "kafeitu" "kardan" "kennethreitz" "kiwi" "kolo" "kphoen" "lambda" "lukerandall" "macovsky-ruby" "maran" "mgutz" "mh" "michelebologna" "mikeh" "miloshadzic" "mira" "mlh" "mrtazz" "muse" "nicoulaj" "norm" "obraun" "peepcode" "philips" "pmcgee" "pygmalion" "pygmalion-virtualenv" "random" "re5et" "refined" "rgm" "risto" "rixius" "rkj" "rkj-repos" "robbyrussell" "sammy" "simonoff" "simple" "skaro" "smt" "sonicradish" "sorin" "steeef" "strug" "sunaku" "sunrise" "superjarin" "suvash" "takashiyoshida" "theunraveler" "tjkirch" "tjkirch_mod" "tonotdo" "trapd00r" "wedisagree" "wezm" "wezm+" "wuffers" "xiong-chiamiov" "xiong-chiamiov-plus" "ys" "zhann" )
+ZSH_THEME_RANDOM_CANDIDATES=( "3den" "adben" "af-magic" "afowler" "amuse" "apple" "arrow" "aussiegeek" "avit" "awesomepanda" "blinks" "bureau" "candy" "candy-kingdom" "clean" "cloud" "crcandy" "cypher" "daveverwer" "dieter" "dpoggi" "dst" "dstufft" "duellj" "edvardm" "essembeh" "evan" "fino" "fishy" "flazz" "fletcherm" "fox" "frisk" "frontcube" "fwalch" "gallifrey" "garyblessington" "gentoo" "geoffgarside" "gianu" "gnzh" "gozilla" "half-life" "intheloop" "itchy" "jaischeema" "jbergantine" "jispwoso" "jnrowe" "jonathan" "josh" "jtriley" "juanghurtado" "kafeitu" "kardan" "kennethreitz" "kiwi" "kolo" "kphoen" "lambda" "lukerandall" "macovsky-ruby" "maran" "mgutz" "mh" "michelebologna" "mikeh" "miloshadzic" "mira" "mlh" "mrtazz" "muse" "norm" "obraun" "peepcode" "philips" "pmcgee" "pygmalion" "pygmalion-virtualenv" "random" "re5et" "refined" "rgm" "risto" "rkj" "rkj-repos" "robbyrussell" "sammy" "simple" "skaro" "smt" "sonicradish" "sorin" "steeef" "strug" "sunaku" "sunrise" "superjarin" "suvash" "takashiyoshida" "theunraveler" "tjkirch" "tjkirch_mod" "tonotdo" "trapd00r" "wedisagree" "wezm" "wezm+" "wuffers" "xiong-chiamiov" "xiong-chiamiov-plus" "zhann" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -106,7 +106,10 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
-
 source $HOME/.asdf/asdf.sh
 source $HOME/.asdf/completions/asdf.bash
+
+eval "$(direnv hook zsh)"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
