@@ -1,12 +1,6 @@
 ---
 - hosts: all
   tasks:
-    - lineinfile: dest="~/.bash_profile" state=present create=yes
-        line="set -o vi"
-
-    - lineinfile: dest="~/.bash_profile" state=present create=yes
-        line="export PS1='\e[0;34m\w\e[0;32m$(__git_ps1)\e[0m \$ '"
-
     - file: src={{ curdir }}/files/{{ item }} dest=~/.{{ item }} state=link
       with_items:
         - gitconfig
