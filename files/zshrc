@@ -17,9 +17,9 @@ ZSH_THEME="${ZSH_THEME:=random}"
 # a theme from this variable instead of looking in $ZSH/themes/
 # If set to an empty array, this variable will have no effect.
 # ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
-ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refined" "mh" "dpoggi" "adben")
+ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refined" "mh" "dpoggi" "adben" "steeef" "norm" )
 
-ZSH_THEME_RANDOM_CANDIDATES=( "3den" "adben" "af-magic" "afowler" "amuse" "apple" "arrow" "aussiegeek" "avit" "awesomepanda" "blinks" "bureau" "candy" "candy-kingdom" "clean" "cloud" "crcandy" "cypher" "daveverwer" "dieter" "dpoggi" "dst" "dstufft" "duellj" "edvardm" "essembeh" "evan" "fino" "fishy" "flazz" "fletcherm" "fox" "frisk" "frontcube" "fwalch" "gallifrey" "garyblessington" "gentoo" "geoffgarside" "gianu" "gnzh" "gozilla" "half-life" "intheloop" "itchy" "jaischeema" "jbergantine" "jispwoso" "jnrowe" "jonathan" "josh" "jtriley" "juanghurtado" "kafeitu" "kardan" "kennethreitz" "kiwi" "kolo" "kphoen" "lambda" "lukerandall" "macovsky-ruby" "maran" "mgutz" "mh" "michelebologna" "mikeh" "miloshadzic" "mira" "mlh" "mrtazz" "muse" "norm" "obraun" "peepcode" "philips" "pmcgee" "pygmalion" "pygmalion-virtualenv" "random" "re5et" "refined" "rgm" "risto" "rkj" "rkj-repos" "robbyrussell" "sammy" "simple" "skaro" "smt" "sonicradish" "sorin" "steeef" "strug" "sunaku" "sunrise" "superjarin" "suvash" "takashiyoshida" "theunraveler" "tjkirch" "tjkirch_mod" "tonotdo" "trapd00r" "wedisagree" "wezm" "wezm+" "wuffers" "xiong-chiamiov" "xiong-chiamiov-plus" "zhann" )
+# ZSH_THEME_RANDOM_CANDIDATES=( "3den" "adben" "af-magic" "afowler" "amuse" "apple" "arrow" "aussiegeek" "avit" "awesomepanda" "blinks" "bureau" "candy" "candy-kingdom" "clean" "cloud" "crcandy" "cypher" "daveverwer" "dieter" "dpoggi" "dst" "dstufft" "duellj" "edvardm" "essembeh" "evan" "fino" "fishy" "flazz" "fletcherm" "fox" "frisk" "frontcube" "fwalch" "gallifrey" "garyblessington" "gentoo" "geoffgarside" "gianu" "gnzh" "gozilla" "half-life" "intheloop" "itchy" "jaischeema" "jbergantine" "jispwoso" "jnrowe" "jonathan" "josh" "jtriley" "juanghurtado" "kafeitu" "kardan" "kennethreitz" "kiwi" "kolo" "kphoen" "lambda" "lukerandall" "macovsky-ruby" "maran" "mgutz" "mh" "michelebologna" "mikeh" "miloshadzic" "mira" "mlh" "mrtazz" "muse" "norm" "obraun" "peepcode" "philips" "pmcgee" "pygmalion" "pygmalion-virtualenv" "random" "re5et" "refined" "rgm" "risto" "rkj" "rkj-repos" "robbyrussell" "sammy" "simple" "skaro" "smt" "sonicradish" "sorin" "steeef" "strug" "sunaku" "sunrise" "superjarin" "suvash" "takashiyoshida" "theunraveler" "tjkirch" "tjkirch_mod" "tonotdo" "trapd00r" "wedisagree" "wezm" "wezm+" "wuffers" "xiong-chiamiov" "xiong-chiamiov-plus" "zhann" )
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
@@ -113,3 +113,29 @@ eval "$(direnv hook zsh)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+function iterm2_print_user_vars() {
+  iterm2_set_user_var current_dir $(pwd | xargs basename)
+}
+
+alias itab="open -a iTerm"
+
+function fsed() {
+  find $1 -type f -exec sed -i '' $2 {} \;
+}
+
+DISABLE_AUTO_TITLE="true"
+
+precmd() {
+  # sets the tab title to current dir
+  echo -ne "\e]1;${PWD##*/}\a"
+}
+
+# hide ruby version from ps1
+function ruby_prompt_info() { echo '' }
+
+if [[ $TMUX_PANE ]]; then
+  HISTFILE=$HOME/.history_tmux_${TMUX_PANE:1}
+fi

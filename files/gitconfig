@@ -6,11 +6,12 @@
   d = diff
   dc = diff --cached
   amend = commit --amend -C HEAD
-  cleanup = !git branch --merged | grep -v -e master -e develop -e \\* | xargs -n 1 git branch -d
+  cleanup = !git branch --merged | grep -v -e master -e develop -e main -e \\* | xargs -n 1 git branch -d
   logh = log -1 --format=format:%H
   logo = log --oneline
   logs = log --stat
   pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+  precommit-mix-format = !echo 'mix format --check-formatted' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
 [color]
   ui = true
 [help]
@@ -28,13 +29,14 @@
 [core]
   excludesfile = ~/.gitignore_global
 [includeIf "gitdir:~/projects/qt.media/"]
-    path = ~/projects/qt.media/.included.gitconfig
+  path = ~/projects/qt.media/.included.gitconfig
 
 [pager]
     diff = delta
     log = delta
     reflog = delta
     show = delta
+    branch = false
 
 [interactive]
     diffFilter = delta --color-only --features=interactive
