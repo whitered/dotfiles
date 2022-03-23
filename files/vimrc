@@ -58,7 +58,7 @@ let g:airline_left_sep=''
 let g:airline_right_sep=''
 let g:airline_theme='tomorrow'
 " Explicitly specify which extensions to use
-let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'ale', 'whitespace']
+let g:airline_extensions = ['branch', 'ctrlp', 'tabline', 'whitespace']
 
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jszakmeister/vim-togglecursor'  " change cursor shape when entering insert mode
