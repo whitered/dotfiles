@@ -75,7 +75,7 @@ ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refin
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git)
+plugins=(git mix timer npm)
 
 # User configuration
 
@@ -109,9 +109,6 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(direnv hook zsh)"
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 function iterm2_print_user_vars() {
@@ -137,3 +134,9 @@ function ruby_prompt_info() { echo '' }
 if [[ $TMUX_PANE ]]; then
   HISTFILE=$HOME/.history_tmux_${TMUX_PANE:1}
 fi
+
+export ECTO_PGSQL_USER="postgres"
+export ECTO_PGSQL_PASSWORD="password"
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
