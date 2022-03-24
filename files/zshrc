@@ -75,7 +75,25 @@ ZSH_THEMES_LIKED=( "zhann" "garyblessington" "clean" "af-magic" "sunrise" "refin
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git mix timer npm)
+plugins=(
+  ag
+  asdf
+  bundler
+  colored-man-pages
+  docker
+  gem
+  git
+  mix
+  npm
+  pip
+  rails
+  rvm
+  safe-paste
+  themes
+  timer
+  vi-mode
+  zsh-navigation-tools
+)
 
 # User configuration
 
@@ -103,7 +121,10 @@ plugins=(git mix timer npm)
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# load oh-my-zsh, ignoring all aliases from it's plugins
+save_aliases=$(alias -L)
 source $ZSH/oh-my-zsh.sh
+unalias -a; eval $save_aliases; unset save_aliases
 
 . /opt/homebrew/opt/asdf/libexec/asdf.sh
 
