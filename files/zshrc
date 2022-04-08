@@ -156,12 +156,5 @@ if [[ $TMUX_PANE ]]; then
   HISTFILE=$HOME/.history_tmux_${TMUX_PANE:1}
 fi
 
-export DATABASE_USERNAME=postgres
-export DATABASE_PASSWORD=password
-export DATABASE_HOST=127.0.0.1
-export DATABASE_PORT=5432
-export ECTO_PGSQL_USER=$DATABASE_USERNAME
-export ECTO_PGSQL_PASSWORD=$DATABASE_PASSWORD
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
