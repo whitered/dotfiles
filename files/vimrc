@@ -17,14 +17,14 @@ map <C-t> :CtrlPBufTag<CR>
 " Make ctrlp faster
 let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
-if has('python') ||  has('python3')
-  " Faster and more accurate fuzzy-matching
-  Plug 'felikz/ctrlp-py-matcher'
-  let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-endif
+" if has('python') ||  has('python3')
+"   " Faster and more accurate fuzzy-matching
+"   Plug 'felikz/ctrlp-py-matcher'
+"   let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" endif
 
 Plug 'dyng/ctrlsf.vim'  " ag-powered search with in-place editing
-let g:ctrlsf_ackprg = 'rg'
+let g:ctrlsf_ackprg = 'ag'
 nmap     <C-f>f :CtrlSF ''<Left>
 nmap     <C-f>n <Plug>CtrlSFCwordPath
 nnoremap <C-f>t :CtrlSFToggle<CR>
@@ -177,6 +177,7 @@ filetype plugin indent on
 """ end plugins """
 
 """ BASE CUSTOMIZATIONS """
+set shell=/bin/bash
 " NOTE: Many base customizations come from vim-sensible and vim-opinion
 set encoding=utf-8
 set relativenumber
