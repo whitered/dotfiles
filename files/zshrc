@@ -84,6 +84,7 @@ plugins=(
   docker
   gem
   git
+  git-open
   mix
   npm
   pip
