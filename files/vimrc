@@ -171,6 +171,7 @@ Plug 'tidalcycles/vim-tidal'
 let g:tidal_default_config = {"socket_name": "default", "target_pane": "1.1"}
 let maplocalleader=","
 
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 filetype plugin indent on
