@@ -1,0 +1,70 @@
+[user]
+  name = Dmitry Zhelnin
+  email = dmitry.zhelnin@gmail.com
+[alias]
+  s = status
+  d = diff
+  dc = diff --cached
+  amend = commit --amend -C HEAD
+  cleanup = !git branch --merged | grep -v -e master -e develop -e main -e \\* | xargs -n 1 git branch -d
+  logh = log -1 --format=format:%H
+  logo = log --oneline
+  logs = log --stat
+  pushu = !git push -u origin `git rev-parse --abbrev-ref HEAD`
+  precommit-mix-format = !echo 'mix format --check-formatted' > .git/hooks/pre-commit && chmod +x .git/hooks/pre-commit
+  clonegh = "!f() { git clone git@github.com:$1.git $1; }; f"
+[color]
+  ui = true
+[help]
+  format = man
+  browser = google-chrome
+[status]
+  showUntrackedFiles = all
+[mergetool]
+  keepBackup = false
+  prompt = false
+[merge]
+  tool = p4mergetool
+  stat = true
+[mergetool "p4mergetool"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
+  keepBackup = false
+  keepTemporaries = false
+  trustExitCode = false
+  prompt = false
+[diff]
+  tool = p4mergetool
+  renames = copies
+  mnemonicprefix = true
+[difftool "p4mergetool"]
+  cmd = /Applications/p4merge.app/Contents/MacOS/p4merge "$LOCAL" "$REMOTE"
+  keepBackup = false
+  keepTemporaries = false
+  trustExitCode = false
+  prompt = false
+[core]
+  excludesfile = ~/.gitignore_global
+[includeIf "gitdir:~/dev/annkissam/"]
+  path = ~/dev/annkissam/.gitconfig
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+  branch = false
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+[delta]
+  features = decorations
+[delta "interactive"]
+  keep-plus-minus-markers = false
+[delta "decorations"]
+  commit-decoration-style = blue ol
+  commit-style = raw
+  file-style = omit
+  hunk-header-decoration-style = blue box
+  hunk-header-file-style = red
+  hunk-header-line-number-style = "#067a00"
+  hunk-header-style = file line-number syntax
+[init]
+	defaultBranch = main
