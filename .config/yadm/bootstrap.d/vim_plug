@@ -1,6 +1,6 @@
 #!/bin/sh
 
 if command -v vim >/dev/null 2>&1; then
-  echo "Bootstraping Vim"
-  vim '+PlugUpdate' '+PlugClean!' '+PlugUpdate' '+qall'
+  echo "Updating Vim Plugins"
+  vim '+PlugClean!' '+PlugUpdate' '+qall'
 fi
