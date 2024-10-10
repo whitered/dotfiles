@@ -1,9 +1,3 @@
-if empty(glob("~/.vim/autoload/plug.vim"))
-  echo "Installing Vim Plug"
-  silent! execute '!curl --create-dirs -fsSLo ~/.vim/autoload/plug.vim https://raw.github.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * silent! PlugInstall
-endif
-
 " Spacebar is a much better leader than \ or ,
 let mapleader = "\<Space>"
 " let mapleader = ","
