@@ -45,7 +45,7 @@ Plug 'jeetsukumaran/vim-buffergator'
 Plug 'scrooloose/nerdtree'
 nnoremap <leader>d :NERDTreeToggle<CR>
 nnoremap <leader>D :NERDTreeFind<CR>
-let g:NERDTreeRespectWildIgnore = 1
+let g:NERDTreeRespectWildIgnore = 0
 let g:NERDTreeIgnore = ['\.pyc$']
 let g:NERDTreeAutoDeleteBuffer=1
 let g:NERDTreeQuitOnOpen=1
