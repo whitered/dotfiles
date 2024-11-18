@@ -5,6 +5,8 @@ path="$HOME/bin"
 if [ -x "$path/dotenvx" ]; then
   echo "Dotenvx already installed"
 else
+  echo "Installing dotenvx"
+  mkdir -p "$HOME/bin"
   curl -L -o dotenvx.tar.gz "https://github.com/dotenvx/dotenvx/releases/latest/download/dotenvx-$(uname -s)-$(uname -m).tar.gz"
   tar -xzf dotenvx.tar.gz -C "$HOME/bin"
 fi
