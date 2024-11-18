@@ -1,5 +1,11 @@
 #!/bin/sh
 
-echo "Installing direnv"
-sudo apt update
-sudo apt install -y direnv
+target="$HOME/bin/direnv"
+
+if [ -x $target ]; then
+  echo "Direnv already installed"
+else
+  echo "Installing direnv"
+  curl -L -o $target "https://github.com/direnv/direnv/releases/download/v2.35.0/direnv.$(uname -s)-$(uname -m)"
+  chmod +x $target
+fi
